@@ -14,13 +14,14 @@ unzip v$VER.zip
 # Navigate to the dir
 cd r-anime-soulmate-finder-$VER 
 
-# Install dependencies
-# These things usually have outdated stuff, 
-# so it's best to just force update everything
-# Also upgrade pip because that's usually outdated as well
-# And also sudo it because fuck venv
-sudo python3 -m pip install --upgrade pip
-sudo python3 -m pip install --upgrade -r requirements.txt
+# Create venv and activate
+# Fuck venv. Use virtualenv instead. It actually works...
+virtualenv -p python3 venv
+source venv/bin/activate
+
+# Install dependencies and force update it all (including pip)
+pip install --upgrade pip
+pip install --upgrade -r requirements.txt
 
 # Get the praw file
 wget $PRAWFILE
