@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Vars
-VER=2.2.0
+VER=2.3.0
 REPO=https://github.com/erkghlerngm44/r-anime-soulmate-finder
 SCRIPT=$REPO/archive/v$VER.zip
 USAGE=$REPO/blob/master/README.md#usage
