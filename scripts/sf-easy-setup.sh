@@ -26,6 +26,9 @@ pip install --upgrade -r requirements.txt
 # Get the praw file
 wget $PRAWFILE
 
+# Edit the version in the prawfile
+sed -i s/x.x.x/$VER/g praw.ini
+
 echo ""
 echo "All ready. Type any command listed here:"
 echo "$USAGE"
