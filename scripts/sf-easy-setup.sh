@@ -30,5 +30,6 @@ wget $PRAWFILE
 sed -i s/x.x.x/$VER/g praw.ini
 
 echo ""
-echo "All ready. Type any command listed here:"
+echo "All ready. Installed /r/anime soulmate finder v$VER and all its dependencies."
+echo "Type any command listed here to run it:"
 echo "$USAGE"
