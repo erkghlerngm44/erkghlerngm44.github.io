@@ -11,13 +11,13 @@ PRAWFILE=https://gist.githubusercontent.com/erkghlerngm44/036c29ba03d7a1c8ddb372
 wget $SCRIPT
 unzip v$VER.zip
 
-# Navigate to the dir
-cd r-anime-soulmate-finder-$VER 
-
 # Create venv and activate
 # Fuck venv. Use virtualenv instead. It actually works...
 virtualenv -p python3 venv
 source venv/bin/activate
+
+# Navigate to the dir
+cd r-anime-soulmate-finder-$VER 
 
 # Install dependencies and force update it all (including pip)
 pip install --upgrade pip
