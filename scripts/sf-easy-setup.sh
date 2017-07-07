@@ -2,14 +2,15 @@
 
 # Vars
 VER=2.3.0
+VVER=v$VER
 REPO=https://github.com/erkghlerngm44/r-anime-soulmate-finder
-SCRIPT=$REPO/archive/v$VER.zip
-USAGE=$REPO/blob/master/README.md#usage
+SCRIPT=$REPO/archive/$VVER.zip
+USAGE=$REPO/blob/$VVER/README.md
 PRAWFILE=https://gist.githubusercontent.com/erkghlerngm44/036c29ba03d7a1c8ddb37220cfde1674/raw/praw.ini
 
 # Download and extract the affinity gatherer script
 wget $SCRIPT
-unzip v$VER.zip
+unzip $VVER.zip
 
 # Create venv and activate
 # Fuck venv. Use virtualenv instead. It actually works...
@@ -30,6 +31,6 @@ wget $PRAWFILE
 sed -i s/x.x.x/$VER/g praw.ini
 
 echo ""
-echo "All ready. Installed /r/anime soulmate finder v$VER and all its dependencies."
+echo "All ready. Installed /r/anime soulmate finder $VVER and all its dependencies."
 echo "Type any command listed here to run it:"
 echo "$USAGE"
