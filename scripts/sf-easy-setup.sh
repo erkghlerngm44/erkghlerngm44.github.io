@@ -1,36 +1,42 @@
 #!/bin/bash
 
+echo "Setting up r-anime-soulmate-finder so you don't have to!"
+
 # Vars
-VER=4.0.0
-VVER=v$VER
-REPO=https://github.com/erkghlerngm44/r-anime-soulmate-finder
-SCRIPT=$REPO/archive/$VVER.zip
-USAGE=$REPO/blob/$VVER/README.md
 PRAWFILE=https://gist.githubusercontent.com/erkghlerngm44/036c29ba03d7a1c8ddb37220cfde1674/raw/praw.ini
 
-# Download and extract the affinity gatherer script
-wget $SCRIPT
-unzip $VVER.zip
+
+# Clone if not done already
+if cd r-anime-soulmate-finder; then
+    echo "r-anime-soulmate-finder directory already exists; not cloning"
+else
+    echo "Cloning r-anime-soulmate-finder"
+    git clone https://github.com/erkghlerngm44/r-anime-soulmate-finder.git
+fi
 
 # Create venv and activate
-# Fuck venv. Use virtualenv instead. It actually works...
 virtualenv -p python3 venv
 source venv/bin/activate
 
-# Navigate to the dir
-cd r-anime-soulmate-finder-$VER 
+# Navigate to cloned dir
+cd r-anime-soulmate-finder
 
-# Install dependencies and force update it all (including pip)
+# And checkout the latest tag (release) as master may not be stable
+latest=$(git describe --tags)
+echo "Checking out $latest"
+git checkout $latest
+
+# Install dependencies and force update everything
 pip install --upgrade pip
 pip install --upgrade -r requirements.txt
 
 # Get the praw file
 wget $PRAWFILE
 
-# Edit the version in the prawfile
-sed -i s/x.x.x/$VER/g praw.ini
+# Edit the version in the prawfile (doesnt do this properly but whatever)
+sed -i s/x.x.x/$latest/g praw.ini
 
 echo ""
-echo "All ready. Installed /r/anime soulmate finder $VVER and all its dependencies."
+echo "All ready. Installed /r/anime soulmate finder $latest and all of its dependencies"
 echo "Type any command listed here to run it:"
-echo "$USAGE"
+echo "https://github.com/erkghlerngm44/r-anime-soulmate-finder/blob/$latest/README.md"
