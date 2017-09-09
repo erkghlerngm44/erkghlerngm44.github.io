@@ -21,7 +21,11 @@ source venv/bin/activate
 # Navigate to cloned dir
 cd r-anime-soulmate-finder
 
-# And checkout the latest tag (release) as master may not be stable
+# Make sure it's up to date
+git fetch origin
+git rebase origin/master
+
+# Checkout the latest tag (release) as master may not be stable
 latest=$(git describe --tags)
 echo "Checking out $latest"
 git checkout $latest
