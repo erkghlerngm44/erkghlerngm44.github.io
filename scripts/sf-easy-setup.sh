@@ -26,7 +26,7 @@ git fetch origin
 git rebase origin/master
 
 # Checkout the latest tag (release) as master may not be stable
-latest=$(git describe --tags)
+latest=$(git describe --tags --abbrev=0)
 echo "Checking out $latest"
 git checkout $latest
 
