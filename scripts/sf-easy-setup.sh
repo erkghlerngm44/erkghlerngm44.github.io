@@ -37,8 +37,9 @@ pip install --upgrade -r requirements.txt
 # Get the praw file
 wget $PRAWFILE
 
-# Edit the version in the prawfile (doesnt do this properly but whatever)
-sed -i s/x.x.x/$latest/g praw.ini
+# Edit the version in the prawfile (doesnt do this properly but whatever).
+# User agent automatically specified in v4.2.0+, no need to do this now.
+# sed -i s/x.x.x/$latest/g praw.ini
 
 echo ""
 echo "All ready. Installed /r/anime soulmate finder $latest and all of its dependencies"
