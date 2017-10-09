@@ -12,14 +12,13 @@ if cd r-anime-soulmate-finder; then
 else
     echo "Cloning r-anime-soulmate-finder"
     git clone https://github.com/erkghlerngm44/r-anime-soulmate-finder.git
+    # Navigate to cloned dir
+    cd r-anime-soulmate-finder
 fi
 
 # Create venv and activate
-virtualenv -p python3 venv
-source venv/bin/activate
-
-# Navigate to cloned dir
-cd r-anime-soulmate-finder
+virtualenv -p python3 ../venv
+source ../venv/bin/activate
 
 # Make sure it's up to date
 git fetch origin
